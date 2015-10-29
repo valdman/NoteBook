@@ -12,7 +12,7 @@ public class Note {
 
         Name = name;
         Long_text = text;
-        Short_text = Long_text.substring(0, 20);
+        Short_text = Long_text.substring(0, 80) + "....";
     }
 
     public String getName() {

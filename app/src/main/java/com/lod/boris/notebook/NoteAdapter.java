@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.zip.Inflater;
 
 /**
  * Created by boris on 29.10.15.
@@ -47,17 +48,19 @@ public class NoteAdapter extends BaseAdapter {
         View view = convertView;
         final Note n = getNote(position);
 
+        view = lInflater.inflate(R.layout.note_template, parent, false);
+
         TextView nameOfNote = (TextView) view.findViewById(R.id.NameOfNoteTextView);
         TextView shortDescOfNote = (TextView)view.findViewById(R.id.ShortDescriptionTextView);
         Button delButton = (Button) view.findViewById(R.id.DeleteNoteButton);
 
         nameOfNote.setText(n.getName());
-        shortDescOfNote.setText(n.getName());
+        shortDescOfNote.setText(n.getShort_text());
 
         delButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Здесь долны быть действия по нажатию кнопки удаления заметки
+                delete_note();
             }
         });
 
@@ -79,8 +82,14 @@ public class NoteAdapter extends BaseAdapter {
     }
 
     Note getNote(int position) {
+
         return ((Note) getItem(position));
     }
+
+    private void delete_note() {
+        // Здесь долны быть действия по нажатию кнопки удаления заметки
+    }
+
 
     private void edit_note(Note noteToEdit){
         // Тут запуск вьюхи-редактора заметки noteToEdit
