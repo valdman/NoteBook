@@ -1,6 +1,7 @@
 package com.lod.boris.notebook;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -93,5 +94,6 @@ public class NoteAdapter extends BaseAdapter {
 
     private void edit_note(Note noteToEdit){
         // Тут запуск вьюхи-редактора заметки noteToEdit
+
     }
 }

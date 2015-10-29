@@ -26,4 +26,16 @@ public class Note {
     public String getShort_text() {
         return Short_text;
     }
+
+    public void setName(String name) {
+        Name = name;
+    }
+
+    public void setLong_text(String long_text) {
+        Long_text = long_text;
+    }
+
+    public void setShort_text() {
+        Short_text = Long_text.substring(0, 80) + "....";
+    }
 }

@@ -1,5 +1,6 @@
 package com.lod.boris.notebook;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -20,10 +21,23 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         init_add_note_button();
+        init_del_all_notes_button();
 
         adapter = new NoteAdapter(this, noteArrayList);
         noteList = (ListView)findViewById(R.id.List_view);
         noteList.setAdapter(adapter);
+    }
+
+    private void init_del_all_notes_button() {
+        Button dellAllButton = (Button)findViewById(R.id.DeleteAllButton);
+        dellAllButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                noteArrayList.clear();
+                adapter.notifyDataSetChanged();
+
+            }
+        });
     }
 
     private void init_add_note_button() {
