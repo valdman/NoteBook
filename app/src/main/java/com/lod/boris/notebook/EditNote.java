@@ -22,6 +22,9 @@ public class EditNote extends Activity{
         super.onCreate(savedInstance);
         setContentView(R.layout.editor);
 
+        Intent callIntent = getIntent();
+        //Как извлечь чертовы данные из Intent???
+
         nameEditor = (EditText)findViewById(R.id.EditNameField);
         textEditor = (EditText)findViewById(R.id.EditTextField);
         cancelButton = (Button)findViewById(R.id.CancelButton);

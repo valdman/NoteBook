@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    ArrayList<Note> noteArrayList = new ArrayList<Note>();
+    static ArrayList<Note> noteArrayList = new ArrayList<Note>();
     ListView noteList;
     NoteAdapter adapter;
 

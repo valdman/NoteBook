@@ -12,7 +12,9 @@ public class Note {
 
         Name = name;
         Long_text = text;
-        Short_text = Long_text.substring(0, 80) + "....";
+        if(Long_text.length()>80) {
+            Short_text = Long_text.substring(0, 80) + "....";
+        }
     }
 
     public String getName() {
@@ -36,6 +38,8 @@ public class Note {
     }
 
     public void setShort_text() {
-        Short_text = Long_text.substring(0, 80) + "....";
+        if(Long_text.length()>80) {
+            Short_text = Long_text.substring(0, 80) + "....";
+        }
     }
 }

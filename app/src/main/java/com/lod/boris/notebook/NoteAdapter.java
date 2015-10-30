@@ -45,7 +45,7 @@ public class NoteAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, final ViewGroup parent) {
         View view = convertView;
         final Note n = getNote(position);
 
@@ -60,8 +60,7 @@ public class NoteAdapter extends BaseAdapter {
 
         delButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                delete_note();
+            public void onClick(View v) {delete_note(n);
             }
         });
 
@@ -87,13 +86,19 @@ public class NoteAdapter extends BaseAdapter {
         return ((Note) getItem(position));
     }
 
-    private void delete_note() {
-        // Здесь долны быть действия по нажатию кнопки удаления заметки
+    private void delete_note(Note noteToDelete) {
+        notes.remove(noteToDelete);
+        notifyDataSetChanged();
     }
 
 
     private void edit_note(Note noteToEdit){
         // Тут запуск вьюхи-редактора заметки noteToEdit
 
+        ctx.getApplicationContext();
+        Intent intent = new Intent(ctx, EditNote.class);
+        intent.putExtra("name", noteToEdit.getName());
+        intent.putExtra("text", noteToEdit.getLong_text());
+        ctx.startActivity(intent);
     }
 }
